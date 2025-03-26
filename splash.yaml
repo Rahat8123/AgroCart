@@ -1,0 +1,13 @@
+flutter_native_splash:
+  color: "#0288D1"  # Sky Blue for light mode
+  color_dark: "#131414"  # Dark black color for dark mode
+  image: assets/logos/AgroCartLogo.png  # Logo for both light and dark mode
+  image_dark: assets/logos/AgroCartLogo.png  # Logo for dark mode
+
+  android_12:
+    color: "#0288D1"  # Sky Blue for light mode
+    color_dark: "#131414"  # Dark black color for dark mode
+    image: assets/logos/AgroCartLogo.png
+    image_dark: assets/logos/AgroCartLogo.png
+
+  web: false  # Assuming you don't need splash screen on the web

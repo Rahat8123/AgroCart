@@ -5,8 +5,8 @@
 class TImages {
 
   // -- App Logos
-  static const String darkAppLogo = "assets/logos/t-store-splash-logo-black.png";
-  static const String lightAppLogo = "assets/logos/t-store-splash-logo-white.png";
+  static const String darkAppLogo = "assets/logos/AgroCartLogo.png";
+  static const String lightAppLogo = "assets/logos/AgroCartLogo.png";
 
   // -- Social Logos
   static const String google = "assets/logos/google-icon.png";
@@ -44,14 +44,13 @@ class TImages {
   static const String verifyIllustration = "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
 
   // -- OnBoarding Texts
-  static const String onBoardingImage1 = "assets/images/on_boarding_images/sammy-line-searching.gif";
-  static const String onBoardingImage2 = "assets/images/on_boarding_images/sammy-line-shopping.gif";
-  static const String onBoardingImage3 = "assets/images/on_boarding_images/sammy-line-delivery.gif";
+  static const String onBoardingImage1 = "assets/image/on_boarding_images/pumpkin.jpg";
+  static const String onBoardingImage2 = "assets/image/on_boarding_images/sammy-line-shopping.gif";
+  static const String onBoardingImage3 = "assets/image/on_boarding_images/sammy-line-delivery.gif";
 
   // -- Products
-  static const String productImage1 = "assets/images/products/nike-shoes.png";
-  static const String productImage2 = "assets/images/products/product-1.png";
-  static const String productImage3 = "assets/images/products/product-jacket.png";
+  static const String productImage1 = "assets/image/products/nike-shoes.png";
+  static const String productImage2 = "assets/image/products/product-1.png";
   static const String productImage4 = "assets/images/products/product-jeans.png";
   static const String productImage5 = "assets/images/products/product-shirt.png";
   static const String productImage6 = "assets/images/products/product-slippers.png";

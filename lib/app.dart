@@ -1,3 +1,4 @@
+import 'package:agrocart/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:agrocart/utils/constants/text_strings.dart';
 import 'package:agrocart/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +17,7 @@ class App extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       // initialBinding: GeneralBindings(),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Awesome! 🎊 Project Structure is set up and running. \n Happy T Coding 🎊', textAlign: TextAlign.center,),
-        ),
-      ),
+      home: const OnBoardingScreen(),
     );
   }
 }

@@ -12,13 +12,13 @@ class TTexts {
 
 
   // -- OnBoarding Texts
-  static const String onBoardingTitle1 = "Choose your product";
-  static const String onBoardingTitle2 = "Select Payment Method";
-  static const String onBoardingTitle3 = "Deliver at your door step";
+  static const String onBoardingTitle1 = "আপনার পণ্য নির্বাচন করুন";
+  static const String onBoardingTitle2 = "পেমেন্ট পদ্ধতি নির্বাচন করুন";
+  static const String onBoardingTitle3 = "আপনার দরজায় ডেলিভারি";
 
-  static const String onBoardingSubTitle1 = "Welcome to a World of Limitless Choices - Your Perfect Product Awaits!";
-  static const String onBoardingSubTitle2 = "For Seamless Transactions, Choose Your Payment Path - Your Convenience, Our Priority!";
-  static const String onBoardingSubTitle3 = "From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!";
+  static const String onBoardingSubTitle1 = "অসীম পছন্দের জগতে স্বাগতম - আপনার পারফেক্ট পণ্য অপেক্ষা করছে!";
+  static const String onBoardingSubTitle2 = "নিরবচ্ছিন্ন লেনদেনের জন্য, আপনার পেমেন্ট পদ্ধতি নির্বাচন করুন - আপনার সুবিধাই আমাদের অগ্রাধিকার!";
+  static const String onBoardingSubTitle3 = "আমাদের দরজা থেকে আপনার দরজায় - দ্রুত, নিরাপদ এবং যোগাযোগহীন ডেলিভারি!";
 
 
   // -- Authentication Forms
