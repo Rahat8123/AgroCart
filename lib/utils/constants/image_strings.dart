@@ -36,12 +36,12 @@ class TImages {
   static const String acerlogo = "assets/icons/brands/acer_logo.png";
 
   // -- Animations
-  static const String productsIllustration = "assets/images/animations/sammy-line-workout.gif";
-  static const String productsSaleIllustration = "assets/images/animations/sammy-line-sale.png";
-  static const String staticSuccessIllustration = "assets/images/animations/sammy-line-success.png";
-  static const String deliveredInPlaneIllustration = "assets/images/animations/sammy-line-come-back-later.png";
-  static const String deliveredEmailIllustration = "assets/images/animations/sammy-line-man-receives-a-mail.png";
-  static const String verifyIllustration = "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
+  static const String productsIllustration = "assets/image/animations/sammy-line-workout.gif";
+  static const String productsSaleIllustration = "assets/image/animations/sammy-line-sale.png";
+  static const String staticSuccessIllustration = "assets/image/animations/sammy-line-success.png";
+  static const String deliveredInPlaneIllustration = "assets/image/animations/sammy-line-come-back-later.png";
+  static const String deliveredEmailIllustration = "assets/image/animations/sammy-line-man-receives-a-mail.png";
+  static const String verifyIllustration = "assets/image/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
 
   // -- OnBoarding Texts
   static const String onBoardingImage1 = "assets/image/on_boarding_images/pumpkin.jpg";

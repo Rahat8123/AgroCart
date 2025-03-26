@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
+import '../../signup/signup.dart';
 
 class loginform extends StatelessWidget {
   const loginform({
@@ -89,16 +90,21 @@ class loginform extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpScreen()), // Navigate to SignUpScreen
+                  );
+                },
                 style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.white, width: 2), // Border color to white with a slight thickness
+                  side: const BorderSide(color: Colors.white, width: 2), // White border
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30), // Rounded corners for a modern look
+                    borderRadius: BorderRadius.circular(30), // Rounded corners
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 16), // Increased padding for better button height
+                  padding: const EdgeInsets.symmetric(vertical: 16), // Increased height
                 ),
-                child: Text(
-                  TTexts.createAccount,
+                child: const Text(
+                  "Create Account", // Replace with TTexts.createAccount if defined
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -107,6 +113,7 @@ class loginform extends StatelessWidget {
                 ),
               ),
             ),
+
 
             //const SizedBox(height: TSizes.spaceBtwSections/10000),
           ],
