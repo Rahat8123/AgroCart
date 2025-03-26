@@ -40,14 +40,14 @@ flutter:
   assets:
     - assets/logos/
     - assets/icons/brands/
-    - assets/images/content/
-    - assets/images/banners/
-    - assets/images/reviews/
-    - assets/images/products/
+    - assets/image/content/
+    - assets/image/banners/
+    - assets/image/reviews/
+    - assets/image/products/
     - assets/icons/categories/
-    - assets/images/animations/
+    - assets/image/animations/
     - assets/icons/payment_methods/
-    - assets/images/on_boarding_images/
+    - assets/image/on_boarding_images/
   fonts:
     - family: Poppins
       fonts:
@@ -66,6 +66,7 @@ flutter:
           weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 800
+
     - family: Bangla
       fonts:
         - asset: assets/fonts/boldbangla.ttf

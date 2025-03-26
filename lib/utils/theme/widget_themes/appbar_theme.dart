@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/utils/constants/sizes.dart';
+
 import '../../constants/colors.dart';
+import '../../constants/sizes.dart';
 
 class TAppBarTheme{
   TAppBarTheme._();
