@@ -1,7 +1,11 @@
+import 'package:agrocart/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../signup/signup.dart';
@@ -57,7 +61,7 @@ class loginform extends StatelessWidget {
                   ],
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {Get.to(()=>const ForgetPassword());},
                   child: const Text(TTexts.forgetPassword, style: TextStyle(color: Colors.white)), // Text color to white
                 ),
               ],
@@ -68,7 +72,7 @@ class loginform extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {Get.to(()=>NavigationMenu());},
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white, backgroundColor: Color(0xFF0A74DA), // Text color to white
                   shape: RoundedRectangleBorder(
