@@ -10,4 +10,4 @@ flutter_native_splash:
     image: assets/logos/AgroCartLogo.png
     image_dark: assets/logos/AgroCartLogo.png
 
-  web: false  # Assuming you don't need splash screen on the web
+  web: false  # Assuming you don't_circular_image.dart need splash screen on the web

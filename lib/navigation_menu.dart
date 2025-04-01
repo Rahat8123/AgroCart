@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import 'features/shop/screens/home/home.dart';
+import 'features/shop/screens/store/store.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -43,7 +44,7 @@ class NavigationController extends GetxController {
 
   final List<Widget> screens = [
     HomeScreen(),
-    Container(color: Colors.purple),
+    StoreScreen(),
     Container(color: Colors.green), // Marketplace (Middle)
     Container(color: Colors.orange),
     Container(color: Colors.blue),

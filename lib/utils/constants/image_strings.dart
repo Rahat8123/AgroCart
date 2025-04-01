@@ -13,15 +13,14 @@ class TImages {
   static const String facebook = "assets/logos/facebook-icon.png";
 
   // -- Category Icons
-  static const String sportIcon = "assets/icons/categories/icons8-bowling-64.png";
-  static const String clothIcon = "assets/icons/categories/icons8-tailors-dummy-64.png";
-  static const String shoeIcon = "assets/icons/categories/icons8-shoes-64.png";
-  static const String cosmeticsIcon = "assets/icons/categories/icons8-cosmetics-64.png";
-  static const String animalIcon = "assets/icons/categories/icons8-dog-heart-64.png";
-  static const String toyIcon = "assets/icons/categories/icons8-wooden-toy-car-50.png";
-  static const String furnitureIcon = "assets/icons/categories/icons8-dining-chair-64.png";
-  static const String jeweleryIcon = "assets/icons/categories/icons8-sparkling-diamond-64.png";
-  static const String electronicsIcon = "assets/icons/categories/icons8-smartphone-64.png";
+  static const String agri = "assets/icons/categories/agri.png";
+  static const String feedmill = "assets/icons/categories/Feed_Mill.webp";
+  static const String cattle = "assets/icons/categories/cattle.jpg";
+  static const String fish = "assets/icons/categories/fish.jpg";
+  static const String gardening = "assets/icons/categories/gardening.png";
+  static const String pets = "assets/icons/categories/pets.png";
+  static const String poultry = "assets/icons/categories/poultry.avif";
+
 
   // -- Brand Icons
   static const String nikeLogo = "assets/icons/brands/nike.png";
@@ -49,23 +48,24 @@ class TImages {
   static const String onBoardingImage3 = "assets/image/on_boarding_images/sammy-line-delivery.gif";
 
   // -- Products
-  static const String productImage1 = "assets/image/products/nike-shoes.png";
-  static const String productImage2 = "assets/image/products/product-1.png";
-  static const String productImage4 = "assets/images/products/product-jeans.png";
-  static const String productImage5 = "assets/images/products/product-shirt.png";
-  static const String productImage6 = "assets/images/products/product-slippers.png";
-  static const String productImage7 = "assets/images/products/NikeAirJOrdonBlackRed.png";
-  static const String productImage8 = "assets/images/products/NikeAirJOrdonOrange.png";
-  static const String productImage9 = "assets/images/products/NikeAirJordonwhiteMagenta.png";
-  static const String productImage10 = "assets/images/products/NikeAirJOrdonWhiteRed.png";
-  static const String productImage11 = "assets/images/products/samsung_s9_mobile.png";
-  static const String productImage12 = "assets/images/products/samsung_s9_mobile_withback.png";
-  static const String productImage13 = "assets/images/products/samsung_s9_mobile_back.png";
-  static const String productImage14 = "assets/images/products/iphone8_mobile.png";
-  static const String productImage15 = "assets/images/products/iphone8_mobile_back.png";
-  static const String productImage16 = "assets/images/products/iphone8_mobile_dual_side.png";
-  static const String productImage17 = "assets/images/products/iphone8_mobile_front.png";
-  static const String productImage18 = "assets/images/products/tomi_dogfood.png";
+  static const String productImage1 = "assets/image/products/cattle/1 (1).jpg";
+  static const String productImage2 = "assets/image/products/cattle/1 (2).jpg";
+  static const String productImage3 = "assets/image/products/cattle/1 (3).jpg";
+  static const String productImage4 = "assets/image/products/cattle/1 (4).jpg";
+  static const String productImage5 = "assets/image/products/cattle/1 (5).jpg";
+  static const String productImage6 = "assets/image/products/cattle/1 (6).jpg";
+  static const String productImage7 = "assets/image/products/cattle/1 (7).jpg";
+  static const String productImage8 = "assets/image/products/cattle/1 (18).jpg";
+  static const String productImage9 = "assets/image/products/cattle/1 (8).jpg";
+  static const String productImage10 = "assets/image/products/cattle/1 (9).jpg";
+  static const String productImage11 = "assets/image/products/cattle/1 (10).jpg";
+  static const String productImage12 = "assets/image/products/cattle/1 (11).jpg";
+  static const String productImage13 = "assets/image/products/cattle/1 (12).jpg";
+  static const String productImage14 = "assets/image/products/cattle/1 (13).jpg";
+  static const String productImage15 = "assets/image/products/cattle/1 (14).jpg";
+  static const String productImage16 = "assets/image/products/cattle/1 (15).jpg";
+  static const String productImage17 = "assets/image/products/cattle/1 (16).jpg";
+  static const String productImage18 = "assets/image/products/cattle/1 (17).jpg";
   static const String productImage19 = "assets/images/products/NikeAirJordonSingleBlue.png";
   static const String productImage20 = "assets/images/products/NikeAirJordonSingleOrange.png";
   static const String productImage21 = "assets/images/products/NikeAirMax.png";
@@ -135,9 +135,9 @@ class TImages {
   static const String userProfileImage3 = "assets/images/reviews/review_profile_image_3.jpeg";
 
   //Banners
-  static const String promoBanner1 = "assets/images/products/promo-banner-1.png";
-  static const String promoBanner2 = "assets/images/products/promo-banner-2.png";
-  static const String promoBanner3 = "assets/images/products/promo-banner-3.png";
+  static const String promoBanner1 = "assets/image/banners/img.png";
+  static const String promoBanner2 = "assets/image/banners/b2.jpg";
+  static const String promoBanner3 = "assets/image/banners/b3.webp";
   static const String banner1 = "assets/images/banners/banner_1.jpg";
   static const String banner2 = "assets/images/banners/banner_2.jpg";
   static const String banner3 = "assets/images/banners/banner_3.jpg";
