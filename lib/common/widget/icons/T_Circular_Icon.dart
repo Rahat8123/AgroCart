@@ -38,11 +38,15 @@ class TCircularIcon extends StatelessWidget {
             (THelperFunctions.isDarkMode(context)
                 ? TColors.black.withOpacity(0.9)
                 : TColors.white.withOpacity(0.9)),
-        borderRadius: BorderRadius.circular(100), // Fixed "Bonteradius.circular"
-      ), // BoxDecoration
-      child: IconButton(
-        onPressed: onPressed,
-        icon: Icon(icon, color: color, size: size),
+        shape: BoxShape.circle, // Ensures the container is perfectly circular
+      ),
+      child: Center( // Ensures the icon is centered
+        child: IconButton(
+          onPressed: onPressed,
+          icon: Icon(icon, color: color, size: size! * .8), // Adjusted size
+          padding: EdgeInsets.zero, // Removes default padding
+          constraints: const BoxConstraints(), // Removes extra constraints
+        ),
       ),
     );
   }

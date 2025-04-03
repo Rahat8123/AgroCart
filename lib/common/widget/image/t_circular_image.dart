@@ -12,7 +12,7 @@ class TCircularImage extends StatelessWidget {
     this.backgroundColor,
     required this.image,
     this.fit = BoxFit.cover,
-    this.padding =TSizes.sm,
+    this.padding = TSizes.sm,
     this.isNetworkImage = false,
   });
 
@@ -25,18 +25,18 @@ class TCircularImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      padding: EdgeInsets.all(padding),
-      decoration: BoxDecoration(
-        color: backgroundColor ??
-            (THelperFunctions.isDarkMode(context)
-                ? TColors.black
-                : TColors.white),
-        borderRadius: BorderRadius.circular(100),
-      ),
-      child: Center(
+    return ClipOval( // Ensures image is always circular
+      child: Container(
+        width: width,
+        height: height,
+        padding: EdgeInsets.all(padding),
+        decoration: BoxDecoration(
+          color: backgroundColor ??
+              (THelperFunctions.isDarkMode(context)
+                  ? TColors.black
+                  : TColors.white),
+          shape: BoxShape.circle, // Keeps the shape always circular
+        ),
         child: Image(
           fit: fit,
           image: isNetworkImage ? NetworkImage(image) : AssetImage(image) as ImageProvider,
@@ -46,3 +46,4 @@ class TCircularImage extends StatelessWidget {
     );
   }
 }
+
