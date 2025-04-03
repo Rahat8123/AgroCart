@@ -1,3 +1,4 @@
+import 'package:agrocart/features/personalization/screens/address/address.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -53,10 +54,11 @@ class SettingsScreen extends StatelessWidget {
             showActionButton: false,
             ),
             const SizedBox(height: TSizes.spaceBtwItems),
-            const TSettingsMenuTile(
+            TSettingsMenuTile(
             icon: Iconsax.safe_home,
             title: 'My Addresses',
             subTitle: 'Set shopping delivery address',
+              onTap: ()=> Get.to(()=>UserAddresScreen()),
             ),
             const TSettingsMenuTile(
             icon: Iconsax.shopping_cart,
