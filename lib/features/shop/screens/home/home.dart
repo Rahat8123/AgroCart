@@ -15,6 +15,7 @@ import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../controller/home_controller.dart';
+import '../All_Products/allproducts.dart';
 
 /// **Home Controller**
 
@@ -75,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
-                   TSectionHeading(title: 'Popular Product',onPressed: (){}),
+                   TSectionHeading(title: 'Popular Product',onPressed: (){Get.to(()=> const AllProducts());}),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
 
