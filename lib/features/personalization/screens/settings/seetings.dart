@@ -13,6 +13,7 @@ import '../../../../common/widget/section_heading/sectionheading.dart';
 import '../../../../utils/constants/colors.dart';
 
 import '../../../../utils/constants/sizes.dart';
+import '../../../shop/screens/order/order.dart';
 import '../profile/profile.dart';  // Make sure to adjust paths for your project
 
 class SettingsScreen extends StatelessWidget {
@@ -69,6 +70,7 @@ class SettingsScreen extends StatelessWidget {
             icon: Iconsax.bag_tick,
             title: 'My Orders',
     subTitle: 'In-progress and Completed Orders',
+              onTap: ()=> Get.to(()=>const OrderScreen()),
     ),
     const TSettingsMenuTile(
     icon: Iconsax.bank,

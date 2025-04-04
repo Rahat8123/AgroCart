@@ -1,8 +1,11 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../common/widget/image_text_widget/vertical_image.dart';
 import '../../../../../utils/constants/image_strings.dart';
+import '../../sub_catagory/sub_catagory.dart';
 
 class homecatagories extends StatelessWidget {
   const homecatagories({
@@ -21,7 +24,7 @@ class homecatagories extends StatelessWidget {
           return TVerticalImageText(
             image: TImages.cattle, // Ensure you have 8 different icons
             title: 'Cattle',
-            onTAp: () {},
+            onTAp: () =>Get.to(()=>const SubCategoriesScreen()),
           );
         },
       ),
