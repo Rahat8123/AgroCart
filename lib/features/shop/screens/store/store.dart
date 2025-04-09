@@ -1,9 +1,12 @@
 import 'package:agrocart/common/brand/brand_show_case.dart';
 import 'package:agrocart/common/widget/appbar/tapbar.dart';
 import 'package:agrocart/common/widget/layout/grid_layout.dart';
+import 'package:agrocart/features/shop/brand/all_brand.dart';
 import 'package:agrocart/features/shop/screens/home/widgets/catagory_tab.dart';
 import 'package:agrocart/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../common/brand/T_Breand_Card/T_Brand_card.dart';
 import '../../../../common/brandmodel/brandmodel.dart';
@@ -65,7 +68,9 @@ class StoreScreen extends StatelessWidget {
                       const SizedBox(height: TSizes.spaceBtwSections),
 
                       /// Featured Brands Section
-                      TSectionHeading(title: 'Featured Brands', onPressed: () {}),
+                      TSectionHeading(title: 'Featured Brands', onPressed: () {
+
+                      Get.to(()=>const AllBrandsScreen());}),
                       const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
                       /// -- Brands GRID

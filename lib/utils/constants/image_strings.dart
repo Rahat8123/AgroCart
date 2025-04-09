@@ -31,7 +31,7 @@ class TImages {
   static const String zaraLogo = "assets/icons/brands/zara-logo.png";
   static const String kenwoodLogo = "assets/icons/brands/kenwood-logo.png";
   static const String hermanMillerLogo = "assets/icons/brands/herman-miller-logo.png";
-  static const String ikeaLogo = "assets/icons/brands/ikea_logo.png";
+  static const String dockerAnimation = "assets/image/animations/141594-animation-of-docer.json";
   static const String acerlogo = "assets/icons/brands/acer_logo.png";
 
   // -- Animations

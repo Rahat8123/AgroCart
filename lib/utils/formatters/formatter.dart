@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 class TFormatter {
   static String formatDate(DateTime? date) {
     date ??= DateTime.now();
-    return DateFormat('dd-MMM-yyyy').format(date); // Example: 26-Mar-2025
+    return DateFormat('dd-MMM-yyyy').format(date); // Example: 10-Apr-2025
   }
 
   static String formatCurrency(double amount) {
@@ -11,30 +11,32 @@ class TFormatter {
   }
 
   static String formatPhoneNumber(String phoneNumber) {
-    // Remove non-digit characters
-    phoneNumber = phoneNumber.replaceAll(RegExp(r'\D'), '');
+    // Remove all non-digit characters
+    String digitsOnly = phoneNumber.replaceAll(RegExp(r'\D'), '');
 
-    if (phoneNumber.length == 11 && phoneNumber.startsWith('01')) {
-      return '${phoneNumber.substring(0, 3)}-${phoneNumber.substring(3, 6)}-${phoneNumber.substring(6)}';
+    // Normalize to 11-digit format (local BD)
+    if (digitsOnly.startsWith('880') && digitsOnly.length == 13) {
+      digitsOnly = digitsOnly.substring(3); // Trim '880'
     }
 
-    return phoneNumber; // Return as-is if not a valid BD number
+    if (digitsOnly.length == 11 && digitsOnly.startsWith('01')) {
+      return '${digitsOnly.substring(0, 3)}-${digitsOnly.substring(3, 6)}-${digitsOnly.substring(6)}';
+    }
+
+    return phoneNumber; // Invalid or unrecognized format
   }
 
   static String internationalFormatPhoneNumber(String phoneNumber) {
-    // Remove non-digit characters
     String digitsOnly = phoneNumber.replaceAll(RegExp(r'\D'), '');
 
-    // Ensure it starts with BD country code
-    if (digitsOnly.startsWith('880')) {
-      digitsOnly = digitsOnly.substring(3); // Remove country code for formatting
-    } else if (digitsOnly.startsWith('01')) {
-      // Keep as local number
-    } else {
-      return phoneNumber; // Invalid BD number
+    if (digitsOnly.startsWith('880') && digitsOnly.length == 13) {
+      digitsOnly = digitsOnly.substring(3);
     }
 
-    // Format as international: +880 1X-XXX-XXXXX
-    return '+880 ${digitsOnly.substring(0, 2)}-${digitsOnly.substring(2, 5)}-${digitsOnly.substring(5)}';
+    if (digitsOnly.length == 11 && digitsOnly.startsWith('01')) {
+      return '+880 ${digitsOnly.substring(0, 2)}-${digitsOnly.substring(2, 5)}-${digitsOnly.substring(5)}';
+    }
+
+    return phoneNumber; // Invalid format
   }
 }
