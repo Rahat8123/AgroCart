@@ -3,6 +3,7 @@ import 'package:agrocart/data/repository/user/userrepository.dart';
 import 'package:agrocart/utils/popups/loaders.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../../data/repository/user/usermodel.dart';
 import '../../../../utils/constants/image_strings.dart';
@@ -35,6 +36,7 @@ class SignupController extends GetxController {
       // 1. Check Internet
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
+        TFullScreenLoader.stopLoading();
         TLoaders.warningSnackBar(
           title: 'No Internet',
           message: 'Please check your connection and try again.',
@@ -45,15 +47,15 @@ class SignupController extends GetxController {
       // 2. Validate Form
       if (!signupFormKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
-
         return;
       }
 
       // 3. Check Privacy Policy
       if (!privacyPolicy.value) {
+        TFullScreenLoader.stopLoading();
         TLoaders.warningSnackBar(
           title: 'Accept Privacy Policy',
-          message: 'To create an account, you must accept the Privacy Policy & Terms.',
+          message: 'You must accept the Privacy Policy & Terms to continue.',
         );
         return;
       }
@@ -64,9 +66,17 @@ class SignupController extends GetxController {
         password.text.trim(),
       );
 
-      // 5. Save user profile data
-      final newUser=UserModel(
-        id: userCredential.user!.uid,
+      // 5. Reload user and send verification email
+      await FirebaseAuth.instance.currentUser?.reload();
+      final user = FirebaseAuth.instance.currentUser;
+
+      if (user != null && !user.emailVerified) {
+        await user.sendEmailVerification();
+      }
+
+      // 6. Save user profile
+      final newUser = UserModel(
+        id: user!.uid,
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
         username: username.text.trim(),
@@ -74,18 +84,25 @@ class SignupController extends GetxController {
         phoneNumber: phoneNumber.text.trim(),
         profilePicture: '',
       );
-final userRepository =Get.put(UserRepository());
-await userRepository.saveUserRecord(newUser);
-      // Success
 
+      final userRepository = Get.put(UserRepository());
+      await userRepository.saveUserRecord(newUser);
+
+      // 7. Done
       TFullScreenLoader.stopLoading();
-      TLoaders.successSnackBar(title: "Success", message: "Account created successfully.");
-      Get.to(()=>const VerifyEmail());
+      TLoaders.successSnackBar(
+        title: "Success",
+        message: "Account created successfully. Please verify your email.",
+      );
+
+      Get.to(() => VerifyEmail(email: email.text.trim()));
 
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Signup Failed', message: e.toString());
-    } finally {
       TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(
+        title: 'Signup Failed',
+        message: e.toString(),
+      );
     }
   }
 }

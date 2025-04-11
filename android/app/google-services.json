@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "834736555405",
+    "project_id": "agrocart-8fcae",
+    "storage_bucket": "agrocart-8fcae.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834736555405:android:54dcfa4537fb5255ade9c4",
+        "android_client_info": {
+          "package_name": "com.example.agrocart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834736555405-56inp1ae6kiiv2g1em3ousl6340748rv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agrocart",
+            "certificate_hash": "f653b0cb839e6039fd7065aecd4369765d31963b"
+          }
+        },
+        {
+          "client_id": "834736555405-tj78b9hjhr78ls5ep2k7mnrnqv5ah99o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcPVtaCKls5WUujMjLJ_HY6j6UyunFj1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834736555405-tj78b9hjhr78ls5ep2k7mnrnqv5ah99o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "834736555405-r907220msrqv1urt1jgb40so1ae57lbd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.agrocart"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
