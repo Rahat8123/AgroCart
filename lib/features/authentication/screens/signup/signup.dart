@@ -17,7 +17,6 @@ class SignUpScreen extends StatelessWidget {
     final backgroundColor = isDarkMode ? Colors.black : const Color(0xFF0A74DA);
     final textColor = Colors.white;
     final borderColor = Colors.white;
-
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(

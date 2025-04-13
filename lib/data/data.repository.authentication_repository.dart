@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../features/authentication/screens/login/login.dart';
 import '../features/authentication/screens/onboarding/onboarding.dart';
@@ -56,6 +57,23 @@ class AuthenticationRepository extends GetxController {
   }
 
 
+  Future<UserCredential> loginWithEmailAndPassword(String email, String password) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+
   // ✅ Firebase Registration Method
   Future<UserCredential> registerWithEmailAndPassword(String email, String password) async {
     try {
@@ -90,8 +108,39 @@ class AuthenticationRepository extends GetxController {
   }
 
 
+
+  Future<UserCredential?> signInWithGoogle() async {
+    try {
+final GoogleSignInAccount? userAccount=await GoogleSignIn().signIn();
+final GoogleSignInAuthentication ? googleAuth=await userAccount ?.authentication;
+final credentials = GoogleAuthProvider.credential(accessToken:googleAuth?.accessToken,idToken: googleAuth?.idToken);
+return await _auth.signInWithCredential(credentials);
+    } on FirebaseAuthException catch (e) {
+      // Handle FirebaseAuth specific exceptions
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      // Handle general Firebase exceptions
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      // Handle format exceptions
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      // Handle platform-specific exceptions
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      // Catch any other unhandled exceptions
+      if (kDebugMode) {
+        print('Something went wrong: $e');
+      }
+      // You can throw a generic exception here if needed
+      return null;
+    }
+    return null;
+  }
+
   Future<void> logout() async {
     try {
+      await GoogleSignIn().signOut();
       await FirebaseAuth.instance.signOut();
       Get.offAll(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {
@@ -106,9 +155,6 @@ class AuthenticationRepository extends GetxController {
       throw 'Something went wrong. Please try again';
     }
   }
-
-
-
 
   // ✅ Save additional user profile to Firestore
   Future<void> saveUserRecord({

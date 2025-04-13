@@ -1,125 +1,164 @@
-import 'package:agrocart/features/authentication/screens/password_configuration/forget_password.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
-
-import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
+import '../../../../../utils/validators/validation.dart';
+import '../../../controller/login/login_controller.dart';
+import '../../password_configuration/forget_password.dart';
 import '../../signup/signup.dart';
-
-class loginform extends StatelessWidget {
-  const loginform({
-    super.key,
-  });
+class loginform  extends StatelessWidget {
+  const loginform({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final textColor = Colors.white;
+    final borderColor = Colors.white;
+    final controller = Get.put(LoginController());
+
     return Form(
+      key: controller.loginFormKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: TSizes.spaceBtwSections),
         child: Column(
           children: [
+            // Email Field
             TextFormField(
+              style: const TextStyle(color: Colors.white),
+              controller: controller.email,
+              validator: (value) => TValidator.validateEmail(value),
               decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.direct_right),
+                prefixIcon: const Icon(Iconsax.direct_right),
                 labelText: TTexts.email,
-                labelStyle: TextStyle(color: Colors.white), // Label text color to white
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white), // Border color to white
+                labelStyle: const TextStyle(color: Colors.white),
+                enabledBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
                 ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white), // Focused border color to white
-                ),
-              ),
-            ),
-            SizedBox(height: TSizes.spaceBtwInputFields),
-            TextFormField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
-                labelText: TTexts.password,
-                suffixIcon: Icon(Iconsax.eye_slash),
-                labelStyle: TextStyle(color: Colors.white), // Label text color to white
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white), // Border color to white
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white), // Focused border color to white
+                focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
                 ),
               ),
             ),
-            SizedBox(height: TSizes.spaceBtwInputFields / 2),
+            const SizedBox(height: TSizes.spaceBtwInputFields),
+
+            // Password Field with toggle
+            Obx(
+                  () => TextFormField(
+
+                controller: controller.password,
+                obscureText: controller.hidePassword.value,
+                validator: (value) => TValidator.validatePassword(value),
+                style: const TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  labelText: TTexts.password,
+                  labelStyle: TextStyle(color: textColor),
+                  prefixIcon: Icon(Iconsax.password_check, color: textColor),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      controller.hidePassword.value =
+                      !controller.hidePassword.value;
+                    },
+                    icon: Icon(
+                      controller.hidePassword.value
+                          ? Iconsax.eye_slash
+                          : Iconsax.eye,
+                      color: textColor,
+                    ),
+                  ),
+                  enabledBorder:
+                  UnderlineInputBorder(borderSide: BorderSide(color: borderColor)),
+                  focusedBorder:
+                  UnderlineInputBorder(borderSide: BorderSide(color: borderColor)),
+                ),
+              ),
+            ),
+            const SizedBox(height: TSizes.spaceBtwInputFields / 2),
+
+            // Remember Me & Forget Password
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    Checkbox(value: true, onChanged: (value) {}),
-                    const Text(TTexts.rememberMe, style: TextStyle(color: Colors.white)), // Text color to white
+                    Obx(
+                          () => Checkbox(
+                        value: controller.rememberMe.value,
+                        onChanged: (value) {
+                          controller.rememberMe.value = !controller.rememberMe.value;
+                        },
+                      ),
+                    ),
+                    const Text(
+                      TTexts.rememberMe,
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ],
                 ),
                 TextButton(
-                  onPressed: () {Get.to(()=>const ForgetPassword());},
-                  child: const Text(TTexts.forgetPassword, style: TextStyle(color: Colors.white)), // Text color to white
+                  onPressed: () {
+                    Get.to(() => const ForgetPassword());
+                  },
+                  child: const Text(
+                    TTexts.forgetPassword,
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ],
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
 
-            // Improved Sign In Button
+            // Sign In Button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {Get.to(()=>NavigationMenu());},
+                onPressed: () {
+                  controller.emailAndPasswordSignIn();
+                },
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white, backgroundColor: Color(0xFF0A74DA), // Text color to white
+                  foregroundColor: Colors.white,
+                  backgroundColor: const Color(0xFF0A74DA),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30), // Rounded corners for a modern look
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 16), // Increased padding for better button height
-                  elevation: 5, // Add elevation to make it stand out
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  elevation: 5,
                 ),
-                child: Text(
+                child: const Text(
                   TTexts.signIn,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600), // Adjusted font size and weight
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
               ),
             ),
 
             const SizedBox(height: TSizes.spaceBtwItems),
 
-            // Improved Create Account Button
+            // Create Account Button
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SignUpScreen()), // Navigate to SignUpScreen
+                    MaterialPageRoute(builder: (context) => const SignUpScreen()),
                   );
                 },
                 style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: Colors.white, width: 2), // White border
+                  side: const BorderSide(color: Colors.white, width: 2),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30), // Rounded corners
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  padding: const EdgeInsets.symmetric(vertical: 16), // Increased height
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
                 child: const Text(
-                  "Create Account", // Replace with TTexts.createAccount if defined
+                  "Create Account",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white, // Text color to white
+                    color: Colors.white,
                   ),
                 ),
               ),
             ),
-
-
-            //const SizedBox(height: TSizes.spaceBtwSections/10000),
           ],
         ),
       ),

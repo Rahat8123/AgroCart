@@ -4,19 +4,15 @@ import 'package:agrocart/utils/constants/text_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../controller/Email/verify_email_controller.dart';
-
 class VerifyEmail extends StatelessWidget {
   const VerifyEmail({super.key, this.email});
   final String?email;
-
   @override
   Widget build(BuildContext context) {
 final controller=Get.put(VerifyEmailController());
-
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -41,16 +37,9 @@ Text(TTexts.confirmEmail,style:Theme.of(context).textTheme.headlineMedium,textAl
             const SizedBox(height:TSizes.spaceBtwItems),
             Text(TTexts.confirmEmailSubTitle,style:Theme.of(context).textTheme.labelMedium,textAlign: TextAlign.center,),
             const SizedBox(height:TSizes.spaceBtwSections),
-            // Buttons
             SizedBox(width:double.infinity,child:ElevatedButton(onPressed:() {
-
               controller.checkEmailVerificationStatus();
-// Get.to(()=>SuccessScreen(
-//   image:TImages.staticSuccessIllustration,
-// title: TTexts.yourAccountCreatedTitle,
-// subTitle: TTexts.yourAccountCreatedSubTitle,
-//   onPressed: ()=>Get.to(()=>const LoginScreen()),
-// ));
+
             }, child:const Text(TTexts.tContinue))),
             const SizedBox(height:TSizes.spaceBtwItems),
             SizedBox(width:double.infinity,child:ElevatedButton(onPressed:() {

@@ -1,10 +1,10 @@
+import 'package:agrocart/features/authentication/controller/login/login_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../../utils/constants/colors.dart';
 import '../../utils/constants/image_strings.dart';
 import '../../utils/constants/sizes.dart';
-
 class socialmidia extends StatelessWidget {
   const socialmidia({
     super.key,
@@ -12,6 +12,7 @@ class socialmidia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller=Get.put(LoginController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -29,7 +30,9 @@ class socialmidia extends StatelessWidget {
             ], // Optional: Add shadow for depth
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              controller.googleSignIn();
+            },
             icon: const Image(
               width: TSizes.iconMd,
               height: TSizes.iconMd,
