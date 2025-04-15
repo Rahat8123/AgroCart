@@ -25,7 +25,7 @@ class AuthenticationRepository extends GetxController {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   static const String isFirstTimeKey = 'isFirstTime';
-
+User? get authUser => _auth.currentUser;
   @override
   void onReady() {
     FlutterNativeSplash.remove();

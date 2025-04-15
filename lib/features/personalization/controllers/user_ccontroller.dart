@@ -8,9 +8,32 @@ import '../../../utils/popups/loaders.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
-
-  // Ensure the repository is correctly instantiated
+final profileLoading=false.obs;
+  Rx<UserModel> user = UserModel.empty().obs;
   final userRepository = Get.put(UserRepository());
+
+  @override
+  void onInit() {
+    super.onInit();
+    fetchUserRecord();
+  }
+
+  /// Fetch user record
+  Future<void> fetchUserRecord() async {
+    try {
+      profileLoading.value=true;
+      final fetchedUser = await userRepository.fetchUserDetails();
+      ;
+      user(fetchedUser); // Update observable
+    } catch (e) {
+      user(UserModel.empty()); // Fallback on error
+    }finally{
+      profileLoading.value=false;
+    }
+  }
+
+
+
 
   /// Save user record from any registration provider
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
